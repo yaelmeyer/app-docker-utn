@@ -1,5 +1,12 @@
+#bajo la imagen de maven para buildear la app java-maven-springboot
+FROM maven:3.8.5-openjdk-17 AS maven
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean install -DskipTests
+
+#bajo la imagen jdk para levantar la app java y copio el .jar generado
 FROM openjdk:17-jdk-slim
 EXPOSE 8081
-ARG JAR_FILE=target/java-docker-0.0.1-SNAPSHOT.jar
-COPY ${JAR_FILE} java_docker.jar
+COPY --from=maven /app/target/java-docker-0.0.1-SNAPSHOT.jar java_docker.jar
 ENTRYPOINT ["java", "-jar", "java_docker.jar"]
