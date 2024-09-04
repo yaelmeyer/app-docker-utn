@@ -1,1 +1,2 @@
-spring.application.name=tp
+spring:
+  application.name: tp
