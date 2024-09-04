@@ -1,0 +1,10 @@
+services:
+  java-docker:
+    build: .
+    ports:
+      - "8081:8080"
+    restart: always
+
+volumes:
+  my-vol:
+    
