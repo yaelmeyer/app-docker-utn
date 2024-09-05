@@ -1,9 +1,22 @@
 package com.curso.docker.tp.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="usuario")
 public class Usuario {
 
+	@Id
+	@GeneratedValue
+	@Column(name="id")
 	private int id;
 	
+	@Column(name="nombre")
+	private String nombre;
 	
 	public Usuario() {
 		super();
@@ -12,7 +25,7 @@ public class Usuario {
 		super();
 		this.nombre = nombre;
 	}
-	private String nombre;
+	
 	public int getId() {
 		return id;
 	}
@@ -25,6 +38,8 @@ public class Usuario {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nombre=" + nombre + "]";
+	}
 }
