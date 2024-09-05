@@ -1,18 +1,16 @@
 spring:
   application.name: tp
   datasource:
-    url: jdbc:mysql://localhost:3306/my-db
-    username: root
-    password: root
+    url: ${DB_URL}
+    username: ${USER}
+    password: ${PASSWORD}
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: update
-      naming:
-        strategy: org.hibernate.cfg.ImprovedNaming.Strategy
-      properties:
-         dialect: org.hibernate.dialect.MySQL5Dialect
-      thymeleaf:
-         cache: false
+    properties:
+         dialect: org.hibernate.dialect.MySQL8Dialect
+  thymeleaf:
+    cache: false
 server:
    port: 8080
