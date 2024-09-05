@@ -18,6 +18,9 @@ public class Usuario {
 	@Column(name="nombre")
 	private String nombre;
 	
+	@Column(name="email")
+	private String email;
+	
 	public Usuario() {
 		super();
 	}
@@ -38,8 +41,16 @@ public class Usuario {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + "]";
+		return "Usuario [nombre=" + nombre + ", email=" + email + "]";
 	}
+	
 }
