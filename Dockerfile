@@ -9,4 +9,5 @@ RUN mvn clean install -DskipTests
 FROM openjdk:17-jdk-slim
 EXPOSE 8082
 COPY --from=maven /app/target/tp-0.0.1-SNAPSHOT.jar java_docker.jar
-ENTRYPOINT ["java", "-jar", "java_docker.jar"]
+COPY start.sh .
+ENTRYPOINT ["sh","./start.sh"]
